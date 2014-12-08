@@ -42,7 +42,7 @@ expect {
     eof
 }
 EOF
-
+    tar -C /opt/android-sdk-linux -zcf $ANDROID_SDK_PACKAGES_LOCAL_CACHE build-tools/ extras/ platforms platform-tools/
 fi
 
 # run adb command as root
