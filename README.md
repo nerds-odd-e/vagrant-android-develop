@@ -21,6 +21,25 @@ Once everything completes, run command `vagrant ssh` to login.
 $ vagrant ssh
 ```
 
+### Build WordPress for Android
+
+Switch into *wordpress-android* branch and update submodule.
+
+``` console
+$ git checkout wordpress-android
+$ git submodule update --init
+```
+
+Log on the VM, and build *WordPress-Android*
+
+``` console
+$ vagrant ssh
+$ cd ~/WordPress-Android
+$ echo sdk.dir=$ANDROID_HOME > local.properties
+$ cp WordPress/gradle.properties-example WordPress/gradle.properties
+$ gradle assembleVanillaDebug
+```
+
 ## What's inside?
 
  * Git
