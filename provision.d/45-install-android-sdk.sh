@@ -35,7 +35,7 @@ else
     expect -i <<EOF
 set timeout -1   ;
 
-spawn $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter "tools,platform-tools,build-tools-19.1.0,android-19,extra-android-m2repository,extra-android-support,extra-google-m2repository"
+spawn $ANDROID_HOME/tools/android --silent update sdk --no-ui --all --filter "tools,platform-tools,build-tools-21.1.1,android-21,build-tools-19.1.0,android-19,extra-android-m2repository,extra-android-support,extra-google-m2repository"
 
 expect {
     "Do you accept the license" { exp_send "y\r" ; exp_continue }
@@ -51,4 +51,6 @@ chmod +s $ANDROID_HOME/platform-tools/adb
 cat > $ANDROID_PROFILE_FILENAME <<EOF
 export ANDROID_HOME=$ANDROID_HOME
 export PATH=\$ANDROID_HOME/tools:\$ANDROID_HOME/platform-tools:\$PATH
+
+alias android-save-packages='tar -C $ANDROID_HOME -zcf $ANDROID_SDK_LOCAL_CACHE build-tools/ extras/ platforms platform-tools/'
 EOF
