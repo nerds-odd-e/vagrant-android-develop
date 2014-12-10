@@ -26,6 +26,8 @@ $ vagrant ssh
  * Git
  * OpenJDK 7
  * Gradle 2.2.1
+ * Maven 3.2.3
+ * Ant 1.9.4
  * Android SDK with packages:
    - tools
    - platform-tools
