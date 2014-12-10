@@ -42,6 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "cache/gradle", "/home/vagrant/.gradle"
+  config.vm.synced_folder "cache/maven", "/home/vagrant/.m2"
 
   config.vm.synced_folder "WordPress-Android", "/home/vagrant/WordPress-Android"
 
