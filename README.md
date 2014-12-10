@@ -21,6 +21,33 @@ Once everything completes, run command `vagrant ssh` to login.
 $ vagrant ssh
 ```
 
+### How to connect my Android phone?
+
+First, use command `VBoxManage list usbhost` to find the *VendorId* of your Android phone.
+
+``` console
+$ VBoxManage list usbhost
+Host USB Devices:
+
+UUID:               d957abf9-18bf-46c6-a182-0466509d36de
+VendorId:           0x04e8 (04E8)
+ProductId:          0x6868 (6868)
+Revision:           4.0 (0400)
+Port:               1
+USB version/speed:  0/2
+Manufacturer:       SAMSUNG
+Product:            SAMSUNG_Android
+SerialNumber:       4df782582f0e405b
+Address:            p=0x6868;v=0x04e8;s=0x0000608fbd70f37e;l=0x14100000
+Current State:      Busy
+```
+
+Now we got the VendorId '*0x04e8*'. Set a system environment variable '*ANDROID_VENDOR_ID*' to this value, and reload the VM. Maybe you need to plug in your device again.
+
+``` console
+$ ANDROID_VENDOR_ID=0x04e8 vagrant reload
+```
+
 ## What's inside?
 
  * Git
