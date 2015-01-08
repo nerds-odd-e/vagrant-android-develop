@@ -53,4 +53,6 @@ export ANDROID_HOME=$ANDROID_HOME
 export PATH=\$ANDROID_HOME/tools:\$ANDROID_HOME/platform-tools:\$PATH
 
 alias android-save-packages='tar -C $ANDROID_HOME -zcf $ANDROID_SDK_LOCAL_CACHE build-tools/ extras/ platforms platform-tools/'
+
+[[ -d /home/vagrant/.android ]] && sudo chown -R vagrant:vagrant /home/vagrant/.android
 EOF

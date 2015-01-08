@@ -41,8 +41,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "cache/gradle", "/home/vagrant/.gradle"
-  config.vm.synced_folder "cache/maven", "/home/vagrant/.m2"
+  synced_opts = {}
+  if ENV["ENABLE_NFS"] == "true"
+    config.vm.network "private_network", type: "dhcp"
+    synced_opts = {nfs: true}
+  end
+
+  {
+    "cache/gradle" => "/home/vagrant/.gradle",
+    "cache/maven" => "/home/vagrant/.m2",
+    "src" => "/home/vagrant/src"
+  }.map { |local_folder, vagrant_folder|
+    config.vm.synced_folder *([local_folder, vagrant_folder] << synced_opts)
+  }
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
