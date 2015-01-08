@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty32"
 
-  config.vm.hostname = "android-dev.local"
+  config.vm.hostname = "atdd.local"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -27,6 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.100"
+  config.vm.network "private_network", type: 'dhcp'
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
