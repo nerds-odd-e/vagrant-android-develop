@@ -1,0 +1,3 @@
+[submodule "src/WordPress-Android"]
+	path = src/WordPress-Android
+	url = https://github.com/nerds-odd-e/WordPress-Android.git
