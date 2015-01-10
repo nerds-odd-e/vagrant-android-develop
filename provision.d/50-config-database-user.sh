@@ -27,8 +27,4 @@ MySQL:
     Password: ${MYSQL_PASSWORD}
     Database: ${MYSQL_DATABASE}
 
-WordPress:
-    URL: http://wordpress.local
-    Username: odd-e
-    Passowrd: s3cr3t
 EOF
